@@ -1,0 +1,7 @@
+/cogs/toRewrite/
+configurations/*
+/resources/
+.env
+venv
+Procfile
+runtime.txt
