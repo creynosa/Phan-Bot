@@ -37,38 +37,37 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def ping(self, ctx):
-        user = ctx.author
-        guild = ctx.guild
-        logger.info(f"{user} used the ping command in {guild.name}. User ID: {user.id}, Guild ID: {guild.id}")
-
+        """Sends a message when someone pings the bot."""
         embed = helpers.makeSimpleTextEmbed("Pong!")
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def ily(self, ctx):
-        logger.info(f"{ctx.author.name} used the ily command.")
+        """Sends a message when someone declares their undying love to the bot."""
         embed = helpers.makeSimpleTextEmbed("I love you more! :heart:")
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def beep(self, ctx):
-        logger.info(f"{ctx.author.name} used the beep command.")
-
+        """Sends a message when someone beeps at the bot."""
         embed = helpers.makeSimpleTextEmbed("Boop boop!")
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def hackermanz(self, ctx):
-        logger.info(f"{ctx.author.name} used the hackermanz command.")
-
+        """Sends a picture of a professional hacker."""
         embed = helpers.makeSimpleImageEmbed("https://i.imgur.com/TuN1P65.png")
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def popo(self, ctx):
-        logger.info(f"{ctx.author.name} used the popo command.")
-
+        """Sends a message when someone indicates that the police are nearby."""
         embed = helpers.makeSimpleTextEmbed(
             ":rotating_light: Woop\-woop! :rotating_light: Dats the sound of da police! :police_car:"
         )
@@ -79,10 +78,10 @@ class Fun(commands.Cog):
     # ROLL COMMAND AND HELPERS
 
     @commands.command()
+    @helpers.logCommand(logger=logger, debug=True)
     async def roll(self, ctx, dieRoll: str = None) -> None:
-        """Rolls a 20-sided die by default, otherwise rolls a die specified by the user in DND die-roll format. (Example: 2d10, 5d5)"""
-        logger.info(f"{ctx.author.name} used the roll command. Arguments: {dieRoll}")
-
+        """Rolls a 20-sided die by default, otherwise rolls a die specified by the user in DND die-roll format. (
+        Example: 2d10, 5d5) """
         if dieRoll is not None:
             try:
                 die, faces = self.getDieAndFaces(dieRoll)
@@ -105,7 +104,7 @@ class Fun(commands.Cog):
     @staticmethod
     def getDieAndFaces(dieRoll: str) -> Optional[tuple]:
         """Returns the number of die and faces to use when given a DND-like dieroll format."""
-        rollRegex = re.compile(r"(\d*)d(\d*)")
+        rollRegex = re.compile(r"^(\d*)d(\d*)$")
         match = re.search(rollRegex, dieRoll)
         logger.debug(f"{match=}")
 
@@ -116,7 +115,7 @@ class Fun(commands.Cog):
         numFaces = int(match.group(2))
 
         logger.debug(f"{numDie=}, {numFaces=}")
-        return (numDie, numFaces)
+        return numDie, numFaces
 
     @staticmethod
     def isValidRoll(die: int, faces: int) -> bool:
@@ -191,17 +190,16 @@ class Fun(commands.Cog):
             text = f"You rolled: {rolls[0]}"
         elif len(rolls) == 2:
             text = f"You rolled: {rolls[0]} and {rolls[1]}"
-        elif len(rolls) >= 3:
+        else:
             text = f"You rolled: {', '.join(rolls[:-1])} and {rolls[-1]}"
         return text
 
     # ====================================================================================
 
     @commands.command(name="8ball")
+    @helpers.logCommand(logger=logger, debug=True)
     async def _8ball(self, ctx, *, question: str) -> None:
         """Responds with a magic 8ball command when the user uses this command."""
-        logger.info(f"{ctx.author.name} used the 8ball command. Arguments: {question}")
-
         responses = {
             1: "It is certain",
             2: "Outlook good",
@@ -234,9 +232,6 @@ class Fun(commands.Cog):
             ]
             for emote in animatedEmotes:
                 if f":{targetEmote}:" in emote:
-                    logger.info(
-                        f"{message.author.name} triggered an emote. Command: {message.content}"
-                    )
                     await message.channel.send(emote)
                     return
 

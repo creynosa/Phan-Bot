@@ -16,10 +16,8 @@ def makeSimpleImageEmbed(imageURL: str) -> discord.Embed:
     return embed
 
 
-def logCommand(*args, **kwargs):
+def logCommand(logger, debug=False):
     """A wrapper used to capture user and guild information when a command is used."""
-
-    logger = kwargs['logger']
 
     def inner(func):
         @functools.wraps(func)
@@ -29,6 +27,8 @@ def logCommand(*args, **kwargs):
             guild = ctx.guild
             logger.info(
                 f"{user} used the {func.__name__} command in {guild.name}. User ID: {user.id}, Guild ID: {guild.id}")
+            if debug:
+                logger.debug(f"Args: {func_args[2:]}, Kwargs: {func_kwargs}")
 
             return await func(*func_args, **func_kwargs)
 
