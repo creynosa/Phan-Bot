@@ -16,28 +16,32 @@ class Fun(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def thanoscat(self, ctx) -> None:
         """Sends an image of a cat crying while being thanosed."""
-        logger.info(f"{ctx.author.name} used the thanoscat command.")
-
         embed = helpers.makeSimpleImageEmbed("https://i.imgur.com/z2RtWzN.jpg")
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def caprikachu(self, ctx) -> None:
-        logger.info(f"{ctx.author.name} used the caprikachu command.")
+        """Sends an image of pikachu drinking caprisun."""
         embed = helpers.makeSimpleImageEmbed("https://i.imgur.com/aqe7pfU.png")
         await ctx.send(embed=embed)
 
     @commands.command()
+    @helpers.logCommand(logger=logger)
     async def hi(self, ctx):
-        logger.info(f"{ctx.author.name} used the hi command.")
+        """Sends a friendly message back when someone says hi."""
         embed = helpers.makeSimpleTextEmbed("Hi! It me, Phan Bot :)")
         await ctx.send(embed=embed)
 
     @commands.command()
     async def ping(self, ctx):
-        logger.info(f"{ctx.author.name} used the ping command.")
+        user = ctx.author
+        guild = ctx.guild
+        logger.info(f"{user} used the ping command in {guild.name}. User ID: {user.id}, Guild ID: {guild.id}")
+
         embed = helpers.makeSimpleTextEmbed("Pong!")
         await ctx.send(embed=embed)
 

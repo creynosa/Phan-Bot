@@ -168,7 +168,6 @@ if __name__ == "__main__":
     @bot.event
     async def on_message(message: discord.Message):
         """Executes certain code blocks upon a message being sent."""
-        # Ignore the bot's own messages.
         if message.author == bot.user:
             return
 
