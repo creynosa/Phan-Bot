@@ -5,3 +5,4 @@ configurations/*
 venv
 Procfile
 runtime.txt
+.pytest_cache

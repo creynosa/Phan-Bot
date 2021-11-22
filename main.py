@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 def loadEnvironmentVars() -> None:
     """Reads and loads the environment variables specified in the project directory."""
-    load_dotenv()
+    load_dotenv('.env')
 
 
 def getLoggingConfig() -> dict:

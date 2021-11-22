@@ -165,7 +165,6 @@ class Twitch(commands.Cog):
         guilds = self.getEnabledGuilds()
         for guild in guilds:
             liveStreamers = []
-
             streamerList = self.getStreamers(guild)
             liveData = self.getLiveTwitchData(streamerList)
             if liveData:

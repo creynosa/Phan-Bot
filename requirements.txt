@@ -1,10 +1,6 @@
 discord
-pytz
-datetime
-num2words
-boto3
-requests
-aiosqlite
 pyyaml
+python-dotenv
+requests
+pytz
 beautifulsoup4
-dotenv
