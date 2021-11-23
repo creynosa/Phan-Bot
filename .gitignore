@@ -6,3 +6,5 @@ venv
 Procfile
 runtime.txt
 .pytest_cache
+.idea
+__pycache__
