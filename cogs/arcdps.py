@@ -11,6 +11,7 @@ from discord.ext import commands, tasks
 from requests.models import HTTPError
 
 from helpers import makeSimpleTextEmbed
+from main import isTesting
 
 logger = logging.getLogger("main.arcdps")
 
@@ -133,7 +134,8 @@ class Arcdps(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        self.arcdpsCheck.start()
+        if not isTesting():
+            self.arcdpsCheck.start()
 
     @staticmethod
     def getArcdpsConfig() -> dict:

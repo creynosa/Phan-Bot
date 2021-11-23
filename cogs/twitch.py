@@ -12,6 +12,7 @@ import yaml
 from discord.ext import commands, tasks
 
 from helpers import makeSimpleTextEmbed
+from main import isTesting
 
 logger = logging.getLogger("main.twitch")
 
@@ -177,10 +178,11 @@ class Twitch(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self) -> None:
-        self.cacheTwitchEnvironmentVariables()
-        self.createNewTwitchToken()
+        if not isTesting():
+            self.cacheTwitchEnvironmentVariables()
+            self.createNewTwitchToken()
 
-        self.checkTwitch.start()
+            self.checkTwitch.start()
 
     def cacheTwitchEnvironmentVariables(self) -> None:
         """Caches the required environment variables for HTTP requests to Twitch."""
