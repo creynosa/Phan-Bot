@@ -78,7 +78,7 @@ class Fun(commands.Cog):
     # ROLL COMMAND AND HELPERS
 
     @commands.command()
-    @helpers.logCommand(logger=logger, debug=True)
+    @helpers.logCommand(logger=logger, logArgs=True)
     async def roll(self, ctx, dieRoll: str = None) -> None:
         """Rolls a 20-sided die by default, otherwise rolls a die specified by the user in DND die-roll format. (
         Example: 2d10, 5d5) """
@@ -197,7 +197,7 @@ class Fun(commands.Cog):
     # ====================================================================================
 
     @commands.command(name="8ball")
-    @helpers.logCommand(logger=logger, debug=True)
+    @helpers.logCommand(logger=logger, logArgs=True)
     async def _8ball(self, ctx, *, question: str) -> None:
         """Responds with a magic 8ball command when the user uses this command."""
         responses = {

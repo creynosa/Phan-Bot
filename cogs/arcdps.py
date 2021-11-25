@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 from discord.ext import commands, tasks
 from requests.models import HTTPError
 
+import helpers
 from helpers import makeSimpleTextEmbed
 from main import isTesting
 
@@ -27,31 +28,51 @@ class Arcdps(commands.Cog):
         return isAdministrator
 
     @commands.group()
+    @helpers.logCommand(logger=logger)
     async def arcdps(self, ctx):
         """Initializes the arcdps command group."""
-        logger.info(f"{ctx.author} used the arcdps command.")
         if ctx.invoked_subcommand is None:
             message = self.makeArcdpsOverviewEmbed(ctx.guild)
             await ctx.send(embed=message)
 
+    @arcdps.command(name='commands')
+    @helpers.logCommand(logger=logger)
+    async def arcdps_commands(self, ctx):
+        """Returns an embed detailing all the available arcdps commands."""
+        publicCommands = "None"
+        adminCommands = """arcdps
+        arcdps channel set `<channel>`
+        arcdps role
+        arcdps role set `<role>`
+        arcdps role remove
+        arcdps enable
+        arcdps disable"""
+        ownerCommands = "arcdps reset"
+
+        embed = discord.Embed(title="Available Commands")
+        embed.set_author(name="Phan Bot", icon_url="https://i.imgur.com/CkAoqD2.png")
+        embed.add_field(name='Public Commands', value=publicCommands)
+        embed.add_field(name='Admin Commands', value=adminCommands)
+        embed.add_field(name='Owner Commands', value=ownerCommands)
+        await ctx.send(embed=embed)
+
     @arcdps.group(name='channel')
+    @helpers.logCommand(logger=logger)
     async def arcdps_channel(self, ctx):
         """Initializes the arcdps channel subcommand group."""
-        logger.info(f"{ctx.author.name} used the arcdps channel command.")
         if ctx.invoked_subcommand is None:
             notificationChannel = self.getGuildArcdpsChannel(ctx.guild)
-            match notificationChannel:
-                case None:
-                    message = makeSimpleTextEmbed('No channel has been set for the arcdps update notifier.')
-                case _:
-                    message = makeSimpleTextEmbed(
-                        f'The arcdps update notification channel is currently set to {notificationChannel.mention}')
+            if notificationChannel:
+                message = makeSimpleTextEmbed(
+                    f'The arcdps update notification channel is currently set to {notificationChannel.mention}')
+            else:
+                message = makeSimpleTextEmbed('No channel has been set for the arcdps update notifier.')
             await ctx.send(embed=message)
 
     @arcdps_channel.command(name='set')
+    @helpers.logCommand(logger=logger, logArgs=True)
     async def arcdps_channel_set(self, ctx, channel: discord.TextChannel = None) -> None:
         """Sets the arcdps notification channel for a guild."""
-        logger.info(f"{ctx.author.name} used the arcdps channel set command.")
         if not channel:
             channel = ctx.channel
         self.setGuildArcdpsChannel(ctx.guild, channel.id)
@@ -63,9 +84,9 @@ class Arcdps(commands.Cog):
         await ctx.send(embed=confirmationMessage)
 
     @arcdps.group(name='role')
+    @helpers.logCommand(logger=logger)
     async def arcdps_role(self, ctx):
         """Initializes the arcdps role subcommand group."""
-        logger.info(f"{ctx.author.name} used the arcdps role command.")
         if ctx.invoked_subcommand is None:
             notificationRole = self.getGuildArcdpsRole(ctx.guild)
             match notificationRole:
@@ -77,9 +98,9 @@ class Arcdps(commands.Cog):
             await ctx.send(embed=message)
 
     @arcdps_role.command(name='set')
+    @helpers.logCommand(logger=logger, logArgs=True)
     async def arcdps_role_set(self, ctx, role: discord.Role) -> None:
         """Sets the arcdps notification role for a guild."""
-        logger.info(f"{ctx.author.name} used the arcdps role set command.")
         self.setGuildArcdpsRole(ctx.guild, role.id)
 
         logger.info(f"The arcdps notification role for {ctx.guild.name} has been set to {role.name}.")
@@ -88,10 +109,10 @@ class Arcdps(commands.Cog):
         await ctx.send(embed=confirmationMessage)
 
     @arcdps_role.command(name='remove')
+    @helpers.logCommand(logger=logger)
     async def arcdps_role_remove(self, ctx) -> None:
         """Removes the arcdps notification role for a guild."""
-        logger.info(f"{ctx.author.name} used the arcdps role remove command.")
-        self.setGuildArcdpsRole(ctx.guild, None)
+        self.removeGuildArcdpsRole(ctx.guild)
 
         logger.info(f"The arcdps notification role for {ctx.guild.name} has been removed.")
         confirmationMessage = makeSimpleTextEmbed(
@@ -99,22 +120,34 @@ class Arcdps(commands.Cog):
         await ctx.send(embed=confirmationMessage)
 
     @arcdps.command(name='enable')
+    @helpers.logCommand(logger=logger)
     async def arcdps_enable(self, ctx) -> None:
         """Enables the arcdps update notifier for a guild."""
-        logger.info(f"{ctx.author.name} used the arcdps enable command.")
+        guildConfig = self.getGuildArcdpsConfig(ctx.guild)
+        enabled = guildConfig['enabled']
 
-        self.enableArcdpsChecker(ctx.guild)
-        confirmationMessage = makeSimpleTextEmbed('The arcdps update notifier has been enabled!')
-        await ctx.send(embed=confirmationMessage)
+        if enabled:
+            message = makeSimpleTextEmbed('The arcdps update notifier is already enabled.')
+            await ctx.send(embed=message)
+        else:
+            self.enableArcdpsChecker(ctx.guild)
+            confirmationMessage = makeSimpleTextEmbed('The arcdps update notifier has been enabled!')
+            await ctx.send(embed=confirmationMessage)
 
     @arcdps.command(name='disable')
+    @helpers.logCommand(logger=logger)
     async def arcdps_disable(self, ctx) -> None:
         """Disables the arcdps update notifier for a guild."""
-        logger.info(f"{ctx.author.name} used the arcdps disable command.")
+        guildConfig = self.getGuildArcdpsConfig(ctx.guild)
+        enabled = guildConfig['enabled']
 
-        self.disableArcdpsChecker(ctx.guild)
-        confirmationMessage = makeSimpleTextEmbed('The arcdps update notifier has been disabled!')
-        await ctx.send(embed=confirmationMessage)
+        if enabled:
+            self.disableArcdpsChecker(ctx.guild)
+            confirmationMessage = makeSimpleTextEmbed('The arcdps update notifier has been disabled!')
+            await ctx.send(embed=confirmationMessage)
+        else:
+            message = makeSimpleTextEmbed('The arcdps update notifier is already disabled.')
+            await ctx.send(embed=message)
 
     @arcdps.group(name='reset')
     @commands.is_owner()
@@ -235,6 +268,11 @@ class Arcdps(commands.Cog):
     def setGuildArcdpsRole(self, guild: discord.Guild, roleID: int | None) -> None:
         """Sets the arcdps notification role for a given guild."""
         self.config['guilds'][guild.id]['roleID'] = roleID
+        self.saveArcdpsConfig()
+
+    def removeGuildArcdpsRole(self, guild: discord.Guild) -> None:
+        """Removes the arcdps notification role for a given guild."""
+        self.config['guilds'][guild.id]['roleID'] = None
         self.saveArcdpsConfig()
 
     def getLastUpdateTime(self) -> Optional[datetime]:
