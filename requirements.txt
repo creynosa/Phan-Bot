@@ -1,0 +1,11 @@
+discord
+pytz
+datetime
+num2words
+boto3
+requests
+aiosqlite
+pyyaml
+beautifulsoup4
+pillow
+python-dotenv

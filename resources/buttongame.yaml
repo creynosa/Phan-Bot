@@ -1,0 +1,377 @@
+guilds:
+  721891483359379606:
+    active: true
+    championID: 566746390903128065
+    championRoleID: 814272202052599808
+    championWins: 8
+    channelID: 814273619630620732
+    currentPoints: 1481
+    currentWinnerID: 0
+    currentWinnerPoints: 0
+    gameDuration: 34157
+    gameMsgID: 852660251588952095
+    leaderboardMsgID: 852660251152351322
+    maxDuration: 86400
+    minDuration: 3600
+    players:
+      127943761194909697:
+        active: false
+        currentPoints: 0
+        highestPoints: 7041
+        lastTimePlayed: 2021-07-14 07:51:00.726764
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 23
+        timesPushed: 3
+        wins: 2
+      161244895154143232:
+        active: true
+        currentPoints: 2813
+        highestPoints: 6097
+        lastTimePlayed: 2021-07-20 00:55:55.835844
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 40
+        timesPushed: 4
+        wins: 0
+      180098419954548736:
+        active: false
+        currentPoints: 0
+        highestPoints: 698
+        lastTimePlayed: 2021-06-15 00:13:03.715982
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 42
+        timesPushed: 1
+        wins: 0
+      210577492451393536:
+        active: false
+        currentPoints: 0
+        highestPoints: 7693
+        lastTimePlayed: 2021-07-16 21:20:54.810906
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 45
+        timesPushed: 12
+        wins: 3
+      226166683046248448:
+        active: true
+        currentPoints: 901
+        highestPoints: 2781
+        lastTimePlayed: 2021-07-19 22:35:00.035349
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 45
+        timesPushed: 39
+        wins: 2
+      231222576314056704:
+        active: false
+        currentPoints: 0
+        highestPoints: 7168
+        lastTimePlayed: 2021-07-11 02:06:37.003600
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 34
+        timesPushed: 6
+        wins: 3
+      288138239598919680:
+        active: false
+        currentPoints: 0
+        highestPoints: 7532
+        lastTimePlayed: 2021-07-19 01:35:42.061048
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 42
+        timesPushed: 19
+        wins: 4
+      290738622976753665:
+        active: false
+        currentPoints: 0
+        highestPoints: 6524
+        lastTimePlayed: 2021-07-13 07:06:51.879285
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 37
+        timesPushed: 6
+        wins: 0
+      302923384529092629:
+        active: false
+        currentPoints: 0
+        highestPoints: 7534
+        lastTimePlayed: 2021-07-18 01:53:43.507935
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 40
+        timesPushed: 25
+        wins: 7
+      313504521823322122:
+        active: true
+        currentPoints: 2814
+        highestPoints: 4544
+        lastTimePlayed: 2021-07-20 03:16:38.033415
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 45
+        timesPushed: 36
+        wins: 4
+      373339234242658304:
+        active: false
+        currentPoints: 0
+        highestPoints: 3909
+        lastTimePlayed: 2021-07-17 04:29:10.828539
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 45
+        timesPushed: 12
+        wins: 3
+      435141251797483540:
+        active: false
+        currentPoints: 0
+        highestPoints: 10647
+        lastTimePlayed: 2021-07-19 11:44:53.435769
+        losses: 0
+        timesChampion: 1
+        timesPlayed: 45
+        timesPushed: 27
+        wins: 4
+      447996658840633384:
+        active: false
+        currentPoints: 0
+        highestPoints: 4337
+        lastTimePlayed: 2021-07-19 15:53:23.426442
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 45
+        timesPushed: 32
+        wins: 1
+      500464781145407493:
+        active: true
+        currentPoints: 558
+        highestPoints: 3625
+        lastTimePlayed: 2021-07-19 21:49:40.729896
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 40
+        timesPushed: 9
+        wins: 0
+      566746390903128065:
+        active: false
+        currentPoints: 0
+        highestPoints: 8111
+        lastTimePlayed: 2021-07-19 00:33:29.027217
+        losses: 0
+        timesChampion: 1
+        timesPlayed: 41
+        timesPushed: 14
+        wins: 8
+      588383713528905741:
+        active: false
+        currentPoints: 0
+        highestPoints: 4455
+        lastTimePlayed: 2021-06-24 22:23:40.134783
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 3
+        wins: 0
+      636153482335748126:
+        active: false
+        currentPoints: 0
+        highestPoints: 5569
+        lastTimePlayed: 2021-07-19 20:32:15.509936
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 43
+        timesPushed: 8
+        wins: 3
+    timeRemaining: 8427
+    timer: 25730
+    winnerMsgID: 866791956679884880
+  733944519640350771:
+    active: true
+    championID: 267691126478077952
+    championRoleID: 805245531198324777
+    championWins: 12
+    channelID: 803277592437850143
+    currentPoints: 512
+    currentWinnerID: 0
+    currentWinnerPoints: 0
+    gameDuration: 26785
+    gameMsgID: 852660061884383233
+    leaderboardMsgID: 852660061646225408
+    maxDuration: 86400
+    minDuration: 3600
+    players:
+      91854222483542016:
+        active: false
+        currentPoints: 0
+        highestPoints: 322
+        lastTimePlayed: 2021-07-18 23:56:21.207089
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 11
+        wins: 0
+      95678990852820992:
+        active: true
+        currentPoints: 32
+        highestPoints: 6308
+        lastTimePlayed: 2021-07-19 23:45:20.384157
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 13
+        wins: 3
+      119150256419110912:
+        active: false
+        currentPoints: 0
+        highestPoints: 3707
+        lastTimePlayed: 2021-07-15 23:23:05.300243
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 34
+        timesPushed: 3
+        wins: 0
+      126819809420771328:
+        active: false
+        currentPoints: 0
+        highestPoints: 4100
+        lastTimePlayed: 2021-07-19 15:25:21.260907
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 32
+        wins: 4
+      145625025028947968:
+        active: false
+        currentPoints: 0
+        highestPoints: 3799
+        lastTimePlayed: 2021-07-19 01:34:21.261655
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 14
+        wins: 1
+      145625946509148161:
+        active: false
+        currentPoints: 0
+        highestPoints: 6745
+        lastTimePlayed: 2021-07-19 11:58:23.977478
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 20
+        wins: 2
+      200393280779714560:
+        active: false
+        currentPoints: 0
+        highestPoints: 4374
+        lastTimePlayed: 2021-07-08 17:18:02.216111
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 13
+        wins: 0
+      211938064724000768:
+        active: true
+        currentPoints: 1508
+        highestPoints: 3794
+        lastTimePlayed: 2021-07-20 01:00:45.843574
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 34
+        timesPushed: 13
+        wins: 0
+      246875516387328000:
+        active: false
+        currentPoints: 0
+        highestPoints: 5205
+        lastTimePlayed: 2021-07-19 20:10:24.762977
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 59
+        wins: 5
+      247551715614654464:
+        active: false
+        currentPoints: 0
+        highestPoints: 6059
+        lastTimePlayed: 2021-07-15 19:25:18.110709
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 40
+        timesPushed: 23
+        wins: 3
+      267691126478077952:
+        active: true
+        currentPoints: 2348
+        highestPoints: 7296
+        lastTimePlayed: 2021-07-20 02:58:09.315460
+        losses: 0
+        timesChampion: 1
+        timesPlayed: 41
+        timesPushed: 91
+        wins: 12
+      293589451815387146:
+        active: false
+        currentPoints: 0
+        highestPoints: 2899
+        lastTimePlayed: 2021-07-18 23:07:32.092594
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 36
+        timesPushed: 8
+        wins: 0
+      304126274803073024:
+        active: false
+        currentPoints: 0
+        highestPoints: 4533
+        lastTimePlayed: 2021-06-24 10:50:16.752488
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 41
+        timesPushed: 4
+        wins: 1
+      315982416474800138:
+        active: false
+        currentPoints: 0
+        highestPoints: 12000
+        lastTimePlayed: 2021-07-19 22:34:48.398950
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 35
+        timesPushed: 22
+        wins: 9
+      386018126820671488:
+        active: false
+        currentPoints: 0
+        highestPoints: 1711
+        lastTimePlayed: 2021-07-18 23:10:23.500906
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 24
+        timesPushed: 5
+        wins: 0
+      435141251797483540:
+        active: true
+        currentPoints: 1337
+        highestPoints: 7049
+        lastTimePlayed: 2021-07-20 04:05:48.653411
+        losses: 0
+        timesChampion: 1
+        timesPlayed: 41
+        timesPushed: 35
+        wins: 1
+      457687762284314670:
+        active: false
+        currentPoints: 0
+        highestPoints: 2373
+        lastTimePlayed: 2021-06-30 19:26:38.973114
+        losses: 0
+        timesChampion: 0
+        timesPlayed: 31
+        timesPushed: 3
+        wins: 0
+    timeRemaining: 9572
+    timer: 17213
+    winnerMsgID: 866827679507283988

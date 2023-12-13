@@ -1,0 +1,10 @@
+06-27 14:25:07 main            INFO     Created main logger.
+06-27 14:25:09 main            INFO     Bot sucessfully started!
+06-27 14:25:09 main.twitch     INFO     Token expired. Retrieving new token.
+06-27 14:25:10 main.twitch     INFO     New token retrieved! Token Info: {'access_token': 'lsmss79t1i9a4ykrfzows8huzpik2s', 'expires_in': 4745421, 'token_type': 'bearer'}
+06-27 14:25:10 main.twitch     DEBUG    Data for phantastro found. Previously: False. Now live!
+06-27 14:25:10 main.twitch     DEBUG    phantastro's stream was last pinged on: 2021-06-26 13:43:04.967674
+06-27 14:25:10 main.twitch     DEBUG    Current Time: 2021-06-27 14:25:10.252040
+06-27 14:25:10 main.twitch     DEBUG    Actual Online Streamers: ['phantastro']
+06-27 14:25:10 main.twitch     DEBUG    Writing new config: {'guilds': {733944519640350771: {'channelID': 781351551540920391, 'roleID': 843539606208249896, 'streamers': {'c0nstant': {'lastNotification': datetime.datetime(2021, 6, 24, 20, 49, 40, 455316), 'live': False}, 'haiylee': {'lastNotification': None, 'live': False}, 'jinfoxgod': {'lastNotification': None, 'live': False}, 'phantastro': {'lastNotification': datetime.datetime(2021, 6, 27, 14, 25, 10, 252040), 'live': True}}}}}
+08249896, 'streamers': {'c0nstant': {'lastNotification': datetime.datetime(2021, 6, 24, 20, 49, 40, 455316), 'live': False}, 'haiylee': {'lastNotification': None, 'live': False}, 'jinfoxgod': {'lastNotification': None, 'live': False}, 'phantastro': {'lastNotification': datetime.datetime(2021, 6, 27, 14, 25, 10, 252040), 'live': True}}}}}
